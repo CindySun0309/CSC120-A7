@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.management.RuntimeErrorException;
-
 /**
  * This class extends from the Building parent class
  * and construct a House
