@@ -164,10 +164,18 @@ public class Library extends Building {
       }
     }
 
+    /**
+     * Method to show all available options for this class
+     */
     public void showOptions() {
       System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + addTitle()\n + removeTitle()\n + checkOut()\n + returnBook()\n + containsTitle()\n + isAvailable()\n + printCollection()");
     }
 
+    /**
+     * Method to take the elevator if there is an elevator in the house.
+     * ps. I did not used super for this class but wrote a more 
+     * complicated overrided method. This works better than using super.
+     */
     public void goToFloor(int floorNum) {
       if (this.activeFloor == -1) {
         throw new RuntimeException("You are not inside this library. Must call enter() before navigating between floors.");
