@@ -126,9 +126,10 @@ public class Cafe extends Building{
     }
 
     /**
-     * Method to take the elevator if there is an elevator in the house.
-     * ps. I did not used super for this class but wrote a more 
-     * complicated overrided method. This works better than using super.
+     * Default/Overloaded method to move the user to other floors
+     * ps. I did not used super for this class but wrote a more complicated overrided method. 
+     * I demonstrated my understanding of super in the House class.
+     * @param floorNum the floor number the user wants to go to
      */
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
@@ -153,17 +154,36 @@ public class Cafe extends Building{
         }
       }
 
+      /**
+       * Full method to move the user to other floors.
+       * @param floorNum the floor number the user wants to go to
+       * @param isEmployee the status of the user (employee or not)
+       */
+      public void goToFloor(int floorNum, boolean isEmployee) {
+        if (isEmployee == true) {
+          goToFloor(floorNum);
+        }
+        else {
+          if (floorNum == this.activeFloor) {
+            System.out.println("You are already on the first floor of this cafe.");
+          }
+          else {
+            System.out.println("Sorry, other floors are accessible only to employees.");
+          } 
+        }
+      }
+
 
 
     public static void main(String[] args) {
-        Cafe campusCenter = new Cafe("Campus Center Cafe", "some street", 3, false, 2, 2, 2, 2);
+        Cafe campusCenter = new Cafe("Campus Center Cafe", "some street", 3, true, 2, 2, 2, 2);
         campusCenter.showOptions();
         campusCenter.sellCoffee(3,2, 1);
 
         campusCenter.enter();
         campusCenter.goUp();
         campusCenter.goDown();
-        campusCenter.goToFloor(2);
+        campusCenter.goToFloor(3, true);
         System.out.println(campusCenter.toString());
     }
     
